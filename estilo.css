@@ -472,6 +472,7 @@ width: 100%;
 .portfolio .contenido-seccion{
     max-width: 1100px;
     margin: auto;
+    
 }
 .portfolio h2{
     font-size: 48px;
@@ -479,46 +480,81 @@ width: 100%;
     text-align: center;
     padding: 20px 0;
 }
-.portfolio .galeria{
+
+.portfolio {
+    padding: 40px 0;
+    background-color: #252A2E;
+}
+
+.contenido-seccion h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2em;
+}
+
+.galeria {
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
-    justify-content: space-around;
+    gap: 20px;
 }
-.portfolio .galeria .proyecto{
+
+/* Estilos para cada card */
+.card {
     position: relative;
-    max-width: 340px;
-    height: fit-content;
-    margin: 10px;
-    cursor: pointer;
+    max-width: 300px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.portfolio .galeria .proyecto img{
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Imagen dentro de cada card */
+.card img {
     width: 100%;
     display: block;
 }
-.portfolio .galeria .proyecto .overlay{
+
+/* Overlay que aparece al hacer hover */
+.overlay {
     position: absolute;
     top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    text-align: center;
-    background: linear-gradient(rgba(28,182,152,.8), rgba(28,182,152,.8));
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    transition: 1s;
-    font-size: 18px;
-    letter-spacing: 3px;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
     opacity: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+    transition: opacity 0.3s ease;
 }
-.portfolio .galeria .proyecto .overlay h3{
-    margin-bottom: 20px;
-    transition: 1s;
-}
-.portfolio .galeria .proyecto .overlay:hover{
+
+.card:hover .overlay {
     opacity: 1;
 }
-.portfolio .galeria .proyecto .overlay:hover h3{
-    margin-bottom: 0px;
+
+.overlay h3 {
+    margin: 0;
+    font-size: 1.5em;
+}
+
+.overlay p {
+    font-size: 1em;
+}
+
+/* Ajustes específicos para Software Ambiental */
+.SoftwareAmbiental {
+    max-width: 940px;
 }
 /* SECCION CONTACTO */
 .contacto{

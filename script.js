@@ -41,15 +41,24 @@ window.onscroll = function () {
     efectoHabilidades();
 };
 
-// Unicamente una descarga
+let downloadCount = 0; // Contador de descargas
+
 document.getElementById('downloadLink').addEventListener('click', function (event) {
-    // Deshabilitar el enlace
-    document.getElementById('downloadLink').style.pointerEvents = "none"; // Deshabilita el enlace
-    document.getElementById('downloadLink').style.color = "gray"; // Cambia el color del texto para indicar deshabilitación
-    // Evitar que el enlace funcione después de un clic
-    event.preventDefault(); // Detiene la acción predeterminada
-    setTimeout(() => {
-        // Permitir la descarga después de prevenir el comportamiento predeterminado
-        window.location.href = 'Hoja de Vida - Estefanía Becerra Quintero.pdf';
-    }, 100); // Este retardo da tiempo a deshabilitar el botón antes de la descarga
+    // Evitar la acción predeterminada del enlace
+    event.preventDefault();
+
+    if (downloadCount < 2) {  // Permite hasta 2 descargas
+        downloadCount++;  // Incrementa el contador de descargas
+
+        // Inicia la descarga en una nueva ventana
+        window.open('Hoja de Vida - Estefanía Becerra Quintero.pdf', '_blank');  
+    } else {
+        // Mostrar el mensaje de alerta cuando se alcanza el límite
+        alert("¡Has alcanzado el máximo de descargas permitidas para la Hoja de Vida!");
+
+        // Deshabilitar el botón y cambiar su estilo para indicar que ya no se puede descargar
+        document.getElementById('downloadButton').disabled = true;  // Deshabilita el botón
+        document.getElementById('downloadButton').style.backgroundColor = "gray";  // Cambiar color de fondo a gris
+        document.getElementById('downloadButton').style.cursor = "not-allowed";  // Cambiar el cursor a 'no permitido'
+    }
 });

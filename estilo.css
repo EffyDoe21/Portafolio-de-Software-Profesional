@@ -502,8 +502,9 @@ width: 100%;
 /* Estilos para cada card */
 .card {
     position: relative;
-    max-width: 300px;
+    max-width: 400px;
     border-radius: 10px;
+    height: 160px;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -517,7 +518,10 @@ width: 100%;
 /* Imagen dentro de cada card */
 .card img {
     width: 100%;
+    height: 100%;
+    object-fit: cover;
     display: block;
+    border-radius: 10px;
 }
 
 /* Overlay que aparece al hacer hover */
@@ -552,36 +556,44 @@ width: 100%;
     font-size: 1em;
 }
 
-/* Ajustes específicos para Software Ambiental */
-.SoftwareAmbiental {
-    max-width: 940px;
-}
-/* SECCION CONTACTO */
-.contacto{
-    
+
+/* SECCIÓN CONTACTO */
+.contacto {
     background-color: #1e2326;
     color: #fff;
     padding: 50px 0;
 }
-.contacto .contenido-seccion{
+
+.contacto .contenido-seccion {
     max-width: 1100px;
     margin: auto;
 }
-.contacto h2{
+
+.contacto h2 {
     font-size: 48px;
-    font-family: 'Righteous';
+    font-family: 'Righteous', sans-serif;
     text-align: center;
     padding: 20px 0;
 }
-.contacto .fila{
+
+/* Configuración de las columnas */
+.contacto .fila {
     display: flex;
+    flex-wrap: wrap; /* Permite que los elementos se adapten en pantallas pequeñas */
+    gap: 20px; /* Espaciado entre columnas */
+    justify-content: space-between;
 }
-.contacto .col{
-    width: 50%;
+
+.contacto .col {
+    flex: 1; /* Ambas columnas tendrán el mismo ancho */
+    min-width: 300px; /* Ancho mínimo para evitar que se reduzcan demasiado */
     padding: 10px;
     position: relative;
 }
-.contacto .col input, .contacto .col textarea{
+
+/* Estilos para los inputs y textarea */
+.contacto .col input, 
+.contacto .col textarea {
     display: block;
     width: 100%;
     padding: 18px;
@@ -590,79 +602,103 @@ width: 100%;
     background-color: #252A2E;
     color: #fff;
     font-size: 18px;
+    border-radius: 5px;
+    outline: none;
 }
-.contacto button{
+
+.contacto .col textarea {
+    resize: none; /* Evita que el usuario redimensione el área de texto */
+}
+
+#contacto button {
     cursor: pointer;
     background-color: transparent;
     border: 2px solid #fff;
-    width: fit-content;
+    width: fit-content; 
     display: block;
-    margin: 40px auto;
+    margin: 20px auto;
     padding: 10px 22px;
     font-size: 16px;
     color: #fff;
     position: relative;
     z-index: 10;
 }
-.contacto button .overlay{
+
+#contacto button .overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 0;
     height: 100%;
-    background-color:#2471a3;
-    z-index: -3;
+    background-color: #2471a3;
+    z-index: -1;
     transition: 1s;
 }
-.contacto button:hover .overlay{
+
+#contacto button:hover .overlay {
     width: 100%;
 }
-.contacto .col img{
-    width: 100%;
-}
-.contacto .col .info{
+
+
+
+/* Información de contacto */
+.contacto .col .info {
     position: absolute;
-    top: 40%;
-    background-color: #252A2E;
-    padding: 20px;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-}
-.contacto .col .info ul{
-    list-style: none;
-}
-.contacto .col .info ul li{
-    margin-bottom: 20px;
-}
-.contacto .col .info ul li i{
-    color:  #2471a3;
-    display: inline-block;
-    margin-right: 20px;
-}
-footer{
     background-color: #252A2E;
-    color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+   
+}
+
+.contacto .col .info ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.contacto .col .info ul li {
+    margin-bottom: 40px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.contacto .col .info ul li i {
+    color: #2471a3;
+    font-size: 20px;
+}
+        /* Mapa Personalizaciòn */
+.Containermap {
+ width: 30%;
+}
+  
+ .Containermap path { 
+    fill: #2471a3;
+stroke: black 
+
+}
+
+.Containermap :hover {
+    fill: #69e459;
+ }
+
+/* Footer   */
+
+footer{
+  
     padding: 50px 0 30px 0;
     text-align: center;
     position: relative;
     width: 100%;
 }
-footer .redes{
-    margin-bottom: 20px;
-}
-footer .redes a{
-    color: #fff;
-    display: inline-block;
-    text-decoration: none;
-    border: 1px solid #fff;
-    border-radius: 100%;
-    width: 42px;
-    height: 42px;
-    line-height: 42px;
-    margin: 40px 5px;
-    font-size: 20px;
-    transition: .3s;
-}
+footer .redes {
+    margin-bottom: 20px;}
+
 footer .arriba{
     display: block;
     width: 50px;
@@ -677,6 +713,7 @@ footer .arriba{
     line-height: 50px;
     font-size: 18px;
 }
+
 /* SECCION RESPONSIVE */
 @media screen and (max-width:980px){
     nav{
